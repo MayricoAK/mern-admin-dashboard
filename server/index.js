@@ -5,10 +5,10 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import clientRoutes from './routes/client.js';
-import generalRoutes from './routes/general.js';
-import managementRoutes from './routes/management.js';
-import salesRoutes from './routes/sales.js';
+// import clientRoutes from './routes/client.js';
+// import generalRoutes from './routes/general.js';
+// import managementRoutes from './routes/management.js';
+// import salesRoutes from './routes/sales.js';
 
 // config
 dotenv.config();
@@ -22,7 +22,16 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(cors());
 
 // routes
-app.use("/client", clientRoutes);
-app.use("/general", generalRoutes);
-app.use("/management", managementRoutes);
-app.use("/sales", salesRoutes);
+// app.use("/client", clientRoutes);
+// app.use("/general", generalRoutes);
+// app.use("/management", managementRoutes);
+// app.use("/sales", salesRoutes);
+
+// mongoose setup
+const PORT = process.env.port || 9000;
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    app.listen(PORT, ()=> console.log('Server Port: ${PORT}'))
+}).catch((error) => console.log('${error} did not connect'))
