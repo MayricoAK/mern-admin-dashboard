@@ -1,47 +1,51 @@
-import React, { useState } from "react";
+import React, {useState} from 'react';
 import {
-  LightModeOutlined,
-  DarkModeOutlined,
-  Menu as MenuIcon,
-  Search,
-  SettingsOutlined,
-  ArrowDropDownOutlined,
-} from "@mui/icons-material";
+    LightModeOutlined,
+    DarkModeOutlined,
+    Menu as MenuIcon,
+    Search,
+    SettingsOutlined,
+    ArrowDropDownOutlined,
+  } from "@mui/icons-material";
 import FlexBetween from "components/FlexBetween";
-import { useDispatch } from "react-redux";
-import { setMode } from "state";
-import profileImage from "assets/profile.jpeg";
-import {
-  AppBar,
-  Button,
-  Box,
-  Typography,
-  IconButton,
-  InputBase,
-  Toolbar,
-  Menu,
-  MenuItem,
-  useTheme,
-} from "@mui/material";
+import { setMode } from 'state';
+import profileImage from "assets/profile.jpeg"
+import { 
+  AppBar, 
+  Box, 
+  Button, 
+  IconButton, 
+  InputBase, 
+  Menu, 
+  MenuItem, 
+  Toolbar, 
+  Typography, 
+  useTheme 
+} from '@mui/material';
+import { useDispatch} from 'react-redux';
 
-const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
-  const dispatch = useDispatch();
-  const theme = useTheme();
+const Navbar = ({
+  user,
+  isSidebarOpen,
+  setIsSidebarOpen,
+}) => {
+    const dispatch = useDispatch();
+    const theme = useTheme();
 
-  const [anchorEl, setAnchorEl] = useState(null);
-  const isOpen = Boolean(anchorEl);
-  const handleClick = (event) => setAnchorEl(event.currentTarget);
-  const handleClose = () => setAnchorEl(null);
+    const [anchorEl, setAnchorEl] = useState(null);
+    const isOpen = Boolean(anchorEl);
+    const handleClick = (event) => setAnchorEl(event.currentTarget);
+    const handleClose = () => setAnchorEl(null);
 
   return (
-    <AppBar
-      sx={{
+  <AppBar
+    sx={{
         position: "static",
         background: "none",
         boxShadow: "none",
-      }}
-    >
-      <Toolbar sx={{ justifyContent: "space-between" }}>
+    }}
+  >
+  <Toolbar sx={{justifyContent:"space-between"}}>
         {/* LEFT SIDE */}
         <FlexBetween>
           <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
@@ -62,7 +66,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
 
         {/* RIGHT SIDE */}
         <FlexBetween gap="1.5rem">
-          <IconButton onClick={() => dispatch(setMode())}>
+            <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === "dark" ? (
               <DarkModeOutlined sx={{ fontSize: "25px" }} />
             ) : (
@@ -74,7 +78,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
           </IconButton>
 
           <FlexBetween>
-            <Button
+            <Button 
               onClick={handleClick}
               sx={{
                 display: "flex",
@@ -83,7 +87,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                 textTransform: "none",
                 gap: "1rem",
               }}
-            >
+              >
               <Box
                 component="img"
                 alt="profile"
@@ -107,10 +111,10 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                 >
                   {user.occupation}
                 </Typography>
-              </Box>
-              <ArrowDropDownOutlined
-                sx={{ color: theme.palette.secondary[300], fontSize: "25px" }}
-              />
+                </Box>
+                <ArrowDropDownOutlined 
+                  sx={{ color: theme.palette.secondary[300], fontSize: "25px" }}
+                />
             </Button>
             <Menu
               anchorEl={anchorEl}
@@ -122,9 +126,9 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
             </Menu>
           </FlexBetween>
         </FlexBetween>
-      </Toolbar>
-    </AppBar>
+  </Toolbar>
+  </AppBar>
   );
 };
 
-export default Navbar;
+export default Navbar
