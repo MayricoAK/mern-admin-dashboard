@@ -12,7 +12,13 @@ import salesRoutes from './routes/sales.js';
 
 // Data imports
 import User from './models/User.js';
-import { dataUser } from './data/index.js';
+import Product from "./models/Product.js";
+import ProductStat from "./models/ProductStat.js";
+import {
+    dataUser,
+    dataProduct,
+    dataProductStat
+  } from "./data/index.js";
 
 // Config
 dotenv.config();
@@ -41,7 +47,9 @@ mongoose
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`)); // Use backticks for template literals
 
     // Optionally insert data if needed. Remove this if not needed for every server start.
-    // User.insertMany(dataUser)
+    // User.insertMany(dataUser);
+    // Product.insertMany(dataProduct);
+    // ProductStat.insertMany(dataProductStat);
     //     .then(() => console.log("User data inserted"))
     //     .catch((error) => console.log(`Error inserting user data: ${error.message}`));
 }).catch((error) => console.log(`Error: ${error.message} did not connect`)); // Use backticks for template literals
