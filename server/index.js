@@ -41,7 +41,7 @@ mongoose
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`)); // Use backticks for template literals
 
     // Optionally insert data if needed. Remove this if not needed for every server start.
-    User.insertMany(dataUser)
-        .then(() => console.log("User data inserted"))
-        .catch((error) => console.log(`Error inserting user data: ${error.message}`));
+    // User.insertMany(dataUser)
+    //     .then(() => console.log("User data inserted"))
+    //     .catch((error) => console.log(`Error inserting user data: ${error.message}`));
 }).catch((error) => console.log(`Error: ${error.message} did not connect`)); // Use backticks for template literals
