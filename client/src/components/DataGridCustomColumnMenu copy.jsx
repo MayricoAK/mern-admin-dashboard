@@ -1,8 +1,7 @@
 import {
   GridColumnMenuContainer,
-  GridColumnMenuFilterItem,
-  GridColumnMenuColumnsItem,
-  
+  GridFilterMenuItem,
+  HideGridColMenuItem,
 } from "@mui/x-data-grid";
 
 const CustomColumnMenu = (props) => {
@@ -13,8 +12,8 @@ const CustomColumnMenu = (props) => {
       currentColumn={currentColumn}
       open={open}
     >
-      <GridColumnMenuFilterItem onClick={hideMenu} column={currentColumn} />
-      <GridColumnMenuColumnsItem onClick={hideMenu} column={currentColumn} />
+      <GridFilterMenuItem onClick={hideMenu} column={currentColumn} />
+      <HideGridColMenuItem onClick={hideMenu} column={currentColumn} />
     </GridColumnMenuContainer>
   );
 };

@@ -3,7 +3,7 @@ import { Box, useTheme } from "@mui/material";
 import { useGetAdminsQuery } from "state/api";
 import { DataGrid } from "@mui/x-data-grid";
 import Header from "components/Header";
-import DataGridCustomColumnMenu from "components/DataGridCustomColumnMenu";
+import CustomColumnMenu from "components/DataGridCustomColumnMenu";
 
 const Admin = () => {
   const theme = useTheme();
@@ -86,8 +86,8 @@ const Admin = () => {
           getRowId={(row) => row._id}
           rows={data || []}
           columns={columns}
-          components={{
-            ColumnMenu: DataGridCustomColumnMenu,
+          slots={{
+            ColumnMenu: CustomColumnMenu,
           }}
         />
       </Box>
