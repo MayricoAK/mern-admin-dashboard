@@ -11,7 +11,7 @@ const Transactions = () => {
   // values to be sent to the backend
   const [page, setPage] = useState(0);
   const [pageSize, setPageSize] = useState(20);
-  const [sort, setSort] = useState([]);
+  const [sort, setSort] = useState({});
   const [search, setSearch] = useState("");
 
   const [searchInput, setSearchInput] = useState("");
@@ -35,7 +35,7 @@ const Transactions = () => {
     },
     {
       field: "createdAt",
-      headerName: "Created At",
+      headerName: "CreatedAt",
       flex: 1,
     },
     {
@@ -97,11 +97,11 @@ const Transactions = () => {
           sortingMode="server"
           onPageChange={(newPage) => setPage(newPage)}
           onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-          onSortModelChange={(newSortModel) => setSort(newSortModel)}
+          onSortModelChange={(newSortModel) => setSort(...newSortModel)}
           slots={{
             toolbar: DataGridCustomToolbar,
           }}
-          slotsProps={{
+          slotProps={{
             toolbar: { searchInput, setSearchInput, setSearch },
           }}
         />
