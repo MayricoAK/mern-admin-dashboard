@@ -53,7 +53,7 @@ const Performance = () => {
         height="75vh"
         sx={{
           "& .MuiDataGrid-root": {
-            border: "none",
+            border: "light",
           },
           "& .MuiDataGrid-cell": {
             borderBottom: "none",
@@ -64,7 +64,7 @@ const Performance = () => {
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: theme.palette.primary.light,
+            // backgroundColor: theme.palette.primary.light,
           },
           "& .MuiDataGrid-footerContainer": {
             backgroundColor: theme.palette.background.alt,

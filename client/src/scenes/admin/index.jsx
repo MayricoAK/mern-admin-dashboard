@@ -58,7 +58,7 @@ const Admin = () => {
         height="75vh"
         sx={{
           "& .MuiDataGrid-root": {
-            border: "none",
+            border: "light",
           },
           "& .MuiDataGrid-cell": {
             borderBottom: "none",
@@ -69,7 +69,7 @@ const Admin = () => {
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: theme.palette.primary.light,
+            // backgroundColor: theme.palette.primary.light,
           },
           "& .MuiDataGrid-footerContainer": {
             backgroundColor: theme.palette.background.alt,
